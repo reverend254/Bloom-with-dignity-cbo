@@ -1,78 +1,3 @@
-## Bloom with Dignity — Cursor Ready React + Tailwind Single-File Starter
-
-Empowering vulnerable girls to bloom with dignity.
-
-### How to use
-
-1) Create a fresh React project (Vite recommended):
-
-```bash
-npm create vite@latest bloom-with-dignity -- --template react
-cd bloom-with-dignity
-npm install
-```
-
-2) Install and configure Tailwind CSS:
-
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-
-Update `tailwind.config.cjs`:
-
-```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  theme: {
-    extend: {
-      colors: {
-        // Enable `text-gold-500` used by the starter
-        gold: {
-          500: '#F7C81C',
-        },
-      },
-    },
-  },
-  plugins: [],
-}
-```
-
-Replace `src/index.css` with:
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-3) Replace `src/App.jsx` with the component below. Add assets to `public/assets` (or `src/assets`) as noted.
-
-4) Run the dev server:
-
-```bash
-npm run dev
-```
-
-5) Deploy to Netlify: build (`npm run build`) and deploy the `dist/` folder, or connect your repository to Netlify.
-
-### Assets required
-
-Place these in `public/assets/` (or adjust paths accordingly):
-
-- `/assets/logo.svg` (optional — inline SVG fallback is included below)
-- `/assets/miss-director-1.jpg`
-- `/assets/miss-director-2.jpg`
-- `/assets/miss-director-3.jpg`
-
-Theme: Use logo colours except red as primary theme (teal/green/gold/soft-lavender accents).
-
-### Component: `src/App.jsx`
-
-```jsx
-import React from 'react'
-
 export default function App(){
   return (
     <div className="min-h-screen font-sans text-gray-900 bg-white">
@@ -302,7 +227,7 @@ function Contact(){
       <div className="max-w-3xl">
         <h2 className="text-2xl font-bold">Contact Us</h2>
         <p className="text-gray-600 mt-2">Reach out to learn more or get involved.</p>
-        <form className="mt-4 grid grid-cols-1 gap-4">
+        <form className="mt-4 grid grid-cols-1 gap-4" onSubmit={(e) => e.preventDefault()}>
           <input className="p-3 border rounded" placeholder="Name" />
           <input className="p-3 border rounded" placeholder="Email" />
           <textarea className="p-3 border rounded" rows={5} placeholder="Message"></textarea>
@@ -361,7 +286,3 @@ function Logo({small, large}){
     </div>
   )
 }
-
-/* End of file */
-```
-
