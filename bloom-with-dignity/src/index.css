@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-500: #F7C81C;
+}
